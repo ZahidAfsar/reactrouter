@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePageComponent from './Components/Pages/HomePageComponent';
+import JacoozziPageComponent from './Components/Pages/JacoozziPageComponent';
+import NavbarComponent from './Components/NavbarComponent';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <BrowserRouter>
+   {/* Wrapping our app in Browser Router enables routing */}
+   <NavbarComponent/>
+   <Routes>
+
+    {/* Route defines our routes to different pages */}
+    {/* '/' defines our home page or the default rendering page */}
+    <Route path='/' element={ <HomePageComponent/> }/>
+    <Route path='/jacoozzi' element={ <JacoozziPageComponent/> }/>
+
+   </Routes>
+   </BrowserRouter>
   );
 }
 
